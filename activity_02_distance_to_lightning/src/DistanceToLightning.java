@@ -8,6 +8,9 @@ import java.util.*;
 
 public class DistanceToLightning {
 
+    static final int    SPEED_OF_LIGHT_IN_FEET = 1100;
+    static final double FEET_IN_A_MILE         = 5280;
+
     public static void main(String[] args) {
 
         // declare and instantiate a Scanner object
@@ -20,10 +23,10 @@ public class DistanceToLightning {
         int sec = sc.nextInt();
 
         // get the distance in feet
-        int feet = sec * 1100;
+        int feet = sec * SPEED_OF_LIGHT_IN_FEET;
 
         // convert from feet to miles
-        double miles = feet / 5280.;
+        double miles = feet / FEET_IN_A_MILE;
 
         // show the distance(s)
         String out = String.format("Distance to lightning is %d feet or %.2f miles", feet, miles);
