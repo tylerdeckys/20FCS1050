@@ -1,7 +1,7 @@
 /*
  * CS1050 - Computer Science I - Fall 2020
  * Instructor: Thyago Mota
- * Description: Activity 03 - Circle Basics
+ * Description: Activity 13 - Circle Basics
  */
 
 import java.util.Scanner;
