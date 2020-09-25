@@ -2,42 +2,59 @@
  * CS1050 - Computer Science I - Fall 2020
  * Instructor: Thyago Mota
  * Description: Prg01 - LatinSquare
- * Student(s) Name(s):
+ * Student Name: Tyler Deckys (no partner)
  */
 
 import java.util.Scanner;
 
-public class LatinSquareDriver {
+class latinSquare {
 
-    static final int MIN_ORDER = 3;
-    static final int MAX_ORDER = 99;
+    static void latinLine(int latinIncreasing, int latinSize) {
+        int latinMinus = latinSize;
+
+        for (int i = 0; i < latinSize + 1; i++) {
+            if (latinSize == latinIncreasing) {
+                latinIncreasing -= latinMinus;
+            } else {
+                latinIncreasing += 1;
+                if (latinIncreasing < 10) {
+                    System.out.print(" " + latinIncreasing + " ");
+                } else {
+                    System.out.print(latinIncreasing + " ");
+                }
+            }
+        }
+        System.out.println();
+    }
 
     public static void main(String[] args) {
 
-        // safe checking whether MIN_ORDER < MAX_ORDER and MAX_ORDER < 99
-        if (MIN_ORDER >= MAX_ORDER || MAX_ORDER > 99) {
-            System.out.println("MIN_ORDER must be < MAX_ORDER!");
-            System.out.println("MIN_ORDER = " + MIN_ORDER);
-            System.out.println("MAX_ORDER = " + MAX_ORDER);
-            System.exit(1); // program exits with an error code
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Order of your Latin Square?");
+        int latinSize = sc.nextInt();
+
+
+        System.out.println("First number in your Latin Square?");
+        int latinIncreasing = sc.nextInt();
+
+        while (latinIncreasing >= latinSize || latinIncreasing <= 0) {
+            System.out.println("First number must be a positive integer that is smaller than your order.");
+            System.out.println("Please enter another first number:");
+            latinIncreasing = sc.nextInt();
         }
 
-        // TODO: ask the user for the order of the square;
-        // the number entered  must be in [MIN_ORDER..MAX_ORDER];
-        // the program should continuously ask the user for the
-        // order of the square, until a valid number is entered.
 
-
-        // TODO: ask the user for the first number of the square;
-        // the number entered must be in [1..order];
-        // the program should continuously ask the user for the
-        // first number of the square, until a valid number is entered.
-
-
-        // TODO: generate the latin square;
-        // after you run your code, the output must be saved in a file named latin_square_A_B.txt,
-        // where A should be replaced by the order and B by the first number; for example,
-        // if order is 5 and the first number is 2, the file should be named latin_square_5_2.txt
+        latinIncreasing -= 1;
+        for (int i = 0; i < latinSize; i++) {
+            latinLine(latinIncreasing, latinSize);
+            if (latinIncreasing == latinSize) {
+                latinIncreasing -= latinSize;
+                latinIncreasing += 1;
+            } else {
+                latinIncreasing += 1;
+            }
+        }
 
 
     }
